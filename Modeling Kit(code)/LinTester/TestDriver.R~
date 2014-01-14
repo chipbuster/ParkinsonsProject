@@ -1,0 +1,12 @@
+source('Main_LT_S4.R')
+source('dataextract.R')
+
+testpd <- function(input){
+  derp1 = lintester(pd, pd$motor_UPDRS, input)
+  derp1 = validate(derp1)
+  return(derp1)
+}
+
+formula1 = formula(motor_UPDRS ~ age + Shimmer.APQ11 + RPDE + PPE)
+
+testpd(formula1)

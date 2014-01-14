@@ -1,0 +1,15 @@
+This code is split into two sections. The Functional_Framework code does everything
+using functions and commands, and contains a much more exploratory set of codes.
+This code was the basis of much of what we did for this project.
+
+The LinTester folder contains the S4 Object-Oriented implementation of some of 
+the codes found in the Functional_Framework folder. It primarily implements
+n-fold cross validation in an object oriented manner. Additional instructions
+on using the LinTester class can be found in the Documentation subfolder
+(./LinTester/Documentation/LinTesterInfo.pdf)
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+Psuedoheaders for R code
+
+In dataextract.R:
+
+        -aliases 'parkdata' to 'pd' (for easier typing)
+
+
+
+In UsefulTools.R
+
+        Script file was coded for a lab, and assumes that the data for modeling
+        are named "x" and "y", and data for testing are "xdata" and "ydata".
+
+        makepred(model, data=xtest)
+            -Returns prediction based on model and data
+
+        mse(model, data, testdata)
+            -Calls makepred() to generate prediction from testdata
+            -Then compares data to the prediction, and finds the MSE
+            -Returns mean(prediction - data)^2 (MSE)
+
+        mae(model, data, testdata)
+            -Calls makepred() to generate prediction from testdata
+            -Then compares date to prediction and finds MAE
+            -Returns mean(abs(prediction - data)) (MAE)
+
+        msein, mseout, maein, maeout
+            -Wrapper functions to call the appropriate functions on either
+            x and y (in-sample errors) or xdata and ydata (out-of-sample error)
+
+        moo()
+            -Because every well-written program needs an easter egg.
+
+In modeltools.R
+
+        makemodel(datain)
+            -makes a linear model using the data in (in Main, this data changes
+            as different bins are used). Any changes to the model must be made 
+            here, or they will be lost during cross correlation.
+            -Returns a linear model
+
+        testmodel(model, modelname, x, y, xtest, ytest)
+            -Tests input model using various functions (currently 4, this can be
+               changed)
+            -model is an object of class lm, modelname is a string or variant
+            -x and y are the data used to make the model (for in-sample)
+            -xtest and ytest are prediction data (for out-of-sample)
+            -Returns a 1-row dataframe with colnames of error measure, rowname 
+            is the modelname.
+
+        Includes comment section at bottom to capture particularly
+        well-performing models.
+
+
+
+
+
+In crosscheck.R
+
+        makebins(data, numbins)
+            -cbinds a vector of random numbers from 1:numbins to the dataframe
+            -returns data frame with numbers
+
+        getTestframe(data, targetbin)
+            -returns a dataframe of rows which have bin_num matching targetbin
+
+        getMainframe(data, targetbin)
+            -returns dataframe of rows which do not have bin_num == targetbin
+
+
+
+
+
+
+
+
+
+
+
+
